@@ -46,6 +46,7 @@ class TSPSolver:
             length += self.distances[tour[i]][tour[i + 1]]
         length += self.distances[tour[-1]][tour[0]]
         return length
+
 if __name__=="__main__":
     # Example usage:
     # Define the distances between cities (example distances)
