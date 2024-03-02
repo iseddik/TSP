@@ -11,17 +11,30 @@ from streamlit_agraph import agraph, Node, Edge, Config
 
 st.set_page_config(layout="wide")
 
-integer_input = -1
+integer_input = 0
 
 with st.container(border=True):
+    st.image("./images/TSP_header.jpg",use_column_width=True, width=300)
     st.markdown("<h1 style='text-align: lift;'>Parameter Tuning</h1>", unsafe_allow_html=True)
     config_nodes = st.slider('How many Nodes?', 3, 100, 5)
     start_point = st.text_input("Enter an integer")
+
+    try:
+        value = int(start_point)
+        if 0 <= value < int(config_nodes):
+            start_point = value
+        else:
+            st.warning(f"Please enter an integer between 0 and {config_nodes-1}.")
+            start_point = 0
+    except ValueError:
+        st.warning("The default value is 0.")
+        start_point = 0
+
     try:
         integer_input = int(start_point)
         st.write("You entered:", integer_input)
     except ValueError:
-        st.write("Please enter a valid integer")
+        st.write("The default value is 0")
 
     start_solve = st.button("Find stream !")
 
