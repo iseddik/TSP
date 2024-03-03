@@ -12,12 +12,13 @@ from streamlit_agraph import agraph, Node, Edge, Config
 st.set_page_config(layout="wide")
 
 integer_input = 0
+st.markdown("<h1 style='text-align: center;'>Travelling salesman problem with DP </h1>", unsafe_allow_html=True)
 
 with st.container(border=True):
-    st.image("./images/TSP_header.jpg",use_column_width=True, width=300)
+    st.image("./images/123.png",use_column_width=True, width=300)
     st.markdown("<h1 style='text-align: lift;'>Parameter Tuning</h1>", unsafe_allow_html=True)
-    config_nodes = st.slider('How many Nodes?', 3, 100, 5)
-    start_point = st.text_input("Enter an integer")
+    config_nodes = st.slider('How many Cities?', 3, 100, 5)
+    start_point = st.text_input("Enter the start city")
 
     try:
         value = int(start_point)
@@ -109,7 +110,7 @@ else:
 config = Config(width=2000,
                 height=1000,
                 directed=True, 
-                physics=True, 
+                physics=False, 
                 hierarchical=False,
                 )
 
