@@ -110,7 +110,7 @@ else:
 config = Config(width=2000,
                 height=1000,
                 directed=True, 
-                physics=False, 
+                physics=True, 
                 hierarchical=False,
                 )
 
